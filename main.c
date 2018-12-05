@@ -134,7 +134,7 @@ int main(int argc, char**argv)
 	}
 
 FILE*reg; reg=fopen("registry.dat","a");
-fprintf(reg,"%d %d %.3f %.3f timetemp_%d_%.2f_%.2f.dat\n", iter+1,forward, urey, B, forward,urey,B);
+fprintf(reg,"%.2f %d %.3f %.3f timetemp_%d_%.2f_%.2f.dat\n", t_Ga,forward, urey, B, forward,urey,B);
 fprintf(stdout,"Done with Forward=%d\tUrey=%.3f\tBeta=%.3f\n", forward, urey, B);
 fclose(ky);
 fclose(fp);
