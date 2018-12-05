@@ -8,7 +8,7 @@
   To run a single scenario:
    - ./thermev [forward in time? yes=1, no=0] [Urey Ratio, H(t)/Q(t)] [Beta, usually ~0.3]
    - Example: thermev 0 0.72 0.30 runs back in time, assuming a Urey ratio of 0.72 and B=0.30.
-   - Output: summary.dat, containing headers for all outputs; timetemp_[0|1]_[Urey]_[Beta].dat
+   - Output: summary.dat, containing headers for all outputs; timetemp_[0|1]_[Urey]_[Beta].dat; registry.dat with T(Ga) elapsed before model quits
 
   To explore a range of scenarios:
    - Open stageparams.c in your text editor.
@@ -16,8 +16,8 @@
    - Compile parameter staging: gcc -lm -o stageparams stageparams.c
    - Run parameter staging: ./stageparams
    - Make staged workflow executable: chmod +x runme.sh
-   - Run staged workflo: ./runme.sh
-   - Output: summary.dat in ThermEv directory; all output files in SCENARIOS directory.
+   - Run staged workflow: ./runme.sh
+   - Output: registry.dat and summary.dat in ThermEv directory; all output files in SCENARIOS directory. T(Ga) in registry.dat is quick measure for ratio's susceptibility to thermal catastrophe paradox.
 
   Coming soon:
    - adjustment of relative heat contributions from radionuclides, so forward model can start with early Earth conditions
