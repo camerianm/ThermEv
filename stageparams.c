@@ -15,22 +15,22 @@ int main(void)
 	double betamin=0.10;
 	double betad=0.05;
 
-	FILE* flist;
-	flist=fopen("flist.sh", "w");
-	fprintf(flist,"#!/bin/bash\n");
-	fprintf(flist,"mkdir SCENARIOS\n");
-	fprintf(flist,"rm registry.dat\n");
+	FILE* runme;
+	runme=fopen("runme.sh", "w");
+	fprintf(runme,"#!/bin/bash\n");
+	fprintf(runme,"mkdir SCENARIOS\n");
+	fprintf(runme,"rm registry.dat\n");
 	for (urey=ureymin;urey<=ureymax;urey=urey+ureyd)
 	{
 		for (beta=betamin;beta<=betamax;beta=beta+betad)
 		{
-			fprintf(flist,"./thermev 0 %.2f %.2f\n", urey, beta);
-			fprintf(flist,"mv timetemp_0_%.2f_%.2f.dat scenarios/timetemp_0_%.2f_%.2f.dat\n", urey, beta, urey, beta);
-			fprintf(flist,"./thermev 1 %.2f %.2f\n", urey, beta);
-			fprintf(flist,"mv timetemp_1_%.2f_%.2f.dat scenarios/timetemp_1_%.2f_%.2f.dat\n", urey, beta, urey, beta);
+			fprintf(runme,"./thermev 0 %.2f %.2f\n", urey, beta);
+			fprintf(runme,"mv timetemp_0_%.2f_%.2f.dat scenarios/timetemp_0_%.2f_%.2f.dat\n", urey, beta, urey, beta);
+			fprintf(runme,"./thermev 1 %.2f %.2f\n", urey, beta);
+			fprintf(runme,"mv timetemp_1_%.2f_%.2f.dat scenarios/timetemp_1_%.2f_%.2f.dat\n", urey, beta, urey, beta);
 		}	
 	}
-fclose(flist);
+fclose(runme);
 return(0);
 }
 
