@@ -24,7 +24,7 @@ int main(int argc, char**argv)
 
 	char summary[50];
 	char timetemp[50];
-	sprintf(timetemp,"timetemp_%d_%.2f_%.2f.dat",forward,urey,B);
+	sprintf(timetemp,"SCENARIOS/timetemp_%d_%.2f_%.2f.dat",forward,urey,B);
 	sprintf(summary,"summary.dat");
 
 	double Q0;					//initial heat flux, W (J/s)
