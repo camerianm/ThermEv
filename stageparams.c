@@ -19,7 +19,7 @@ int main(void)
 	//BACKWARD INTEGRATION PARAMETERS - Values assumed to apply at present
 	double urey  			;//Urey ratio = Radiogenic heat produced (H(t=present)) over heat loss from secular cooling (Q(t=present))
 	double ureymin=0.04		;//minimum Urey ratio to include in grid; Korenaga (2008) suggests <=0.15, some crustal data suggests higher
-	double ureymax=0.30		;//maximum Urey ratio to include in grid; Christensen (1984) suggests >=0.7 from assuming beta=0.33.
+	double ureymax=0.65		;//maximum Urey ratio to include in grid; Christensen (1984) suggests >=0.7 from assuming beta=0.33.
 	double ureyd=0.02		;//size of steps between subsequent Urey ratios tested. Start with 0.10 to 0.30, or see DOI:10.1029/2007RG000241
 
 	//FORWARD INTEGRATION PARAMETERS - Values assumed to apply ~4.54GA.
@@ -33,9 +33,15 @@ int main(void)
 	runme=fopen("runme.sh", "w");
 	fprintf(runme,"#!/bin/bash\n");
 	fprintf(runme,"mkdir SCENARIOS\n");
+	fprintf(runme,"mkdir SUCCESSES\n");
+	fprintf(runme,"mkdir SUCCESSES/SCENARIOS\n");
 	fprintf(runme,"rm registry_fwd.dat\n");
 	fprintf(runme,"rm registry_back.dat\n");
 	fprintf(runme,"rm summary.dat\n");
+	fprintf(runme,"rm registry_fwd_okay.sh\n");
+	fprintf(runme,"rm registry_back_okay.sh\n");
+	fprintf(runme,"rm success_back.dat\n");
+	fprintf(runme,"rm success_fwd.dat\n");
 
 	//Reverse mode
 	for (beta=betamin;beta<=betamax;beta=beta+betad)
